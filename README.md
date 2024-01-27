@@ -1,3 +1,4 @@
-## Complaints managament
+## Complaints Managament
 
-Laravel is a web application for complaints managament
+Complaints Managament web application with Laravel. This project is only for learning purpose.
+
