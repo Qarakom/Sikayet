@@ -19,8 +19,10 @@ Route::get('/', [AuthController::class, 'login'])->name('login');
 
 Route::post('login', [AuthController::class, 'AuthLogin']);
 Route::get('logout', [AuthController::class, 'logout']);
-
-
+Route::get('forgot-password', [AuthController::class, 'ForgotPassword']);
+Route::post('forgot-password', [AuthController::class, 'PostForgotPassword']);
+Route::get('reset/{token}', [AuthController::class, 'reset']);
+Route::post('reset/{token}', [AuthController::class, 'PostReset']);
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function() {
 
