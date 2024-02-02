@@ -28,7 +28,12 @@
             <i class="fas fa-fw fa-table"></i>
             <span>Operatorlar</span></a>
     </li>
-
+    <li class="nav-item @if( Request::segment(2) == "sikayetler" ) active @endif">
+        <a class="nav-link" href="{{ url('admin/sikayetler') }}">
+            <i class="fas fa-file-alt"></i>
+            <span>Şikayətlər</span></a>
+    </li>
+    <hr class="sidebar-divider">
     @elseif( Auth::user()->user_type==2)
     <li class="nav-item active">
         <a class="nav-link" href="{{ url('sikayetci/dashboard') }}">

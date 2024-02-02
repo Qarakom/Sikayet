@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ !empty($header_title) ? $header_title : 'Şikayətçi'}}</title>
 
@@ -52,6 +53,8 @@
 
       @include('layouts.footer')
 
+      @yield('modal')
+
     <!-- Bootstrap core JavaScript-->
     <script src="{{ url('vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ url('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
@@ -70,6 +73,13 @@
     <!-- Page level custom scripts -->
     <script src="{{ url('js/demo/chart-area-demo.js') }}"></script>
     <script src="{{ url('js/demo/chart-pie-demo.js') }}"></script>
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    </script>
     @yield('script')
 
 
